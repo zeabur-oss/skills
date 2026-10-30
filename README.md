@@ -31,7 +31,10 @@ A zeabur-oss repository's `.github/workflows/skills.yml` calls the shared [`skil
 
 ## Checking text with Vale
 
-`zeabur-writing` ships a [Vale](https://vale.sh) style in [`skills/zeabur-writing/vale`](skills/zeabur-writing/vale). Its [SKILL.md](skills/zeabur-writing/SKILL.md) says how to set it up in a repository. This flake builds `mdx2vast`, which Vale needs for `.mdx` files:
+`zeabur-writing` ships a [Vale](https://vale.sh) style in [`skills/zeabur-writing/vale`](skills/zeabur-writing/vale). To check a repository with it, once:
+
+1. Copy [`vale.ini`](skills/zeabur-writing/vale/vale.ini) to `.vale.ini` at the repository root and set `StylesPath` to `.claude/skills/zeabur-writing/vale`.
+2. Put Vale in the dev shell. `.mdx` files also need `mdx2vast`, which nixpkgs does not have; this flake builds it:
 
 ```nix
 inputs.oss-skills.url = "github:zeabur-oss/skills";
