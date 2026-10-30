@@ -53,15 +53,8 @@ The register is plain written Chinese, as in a good manual: everyday words, full
 - **Break 的 chains and long pre-modifiers** into a clause: 「副本的重新啟動會導致連線的中斷」 → 「副本重新啟動後，連線會中斷」.
 - **Calques to rewrite:** 當…的時候 → …時；最…之一 → say it plainly；作為一個 → 是；透過 for a method → 用、在；關於／對於 at the start of a sentence → drop it.
 
-## Say the fact, not the hedge
+## Say it directly
 
-- **No defensive 不代表／不宣稱.** Keep a limit only when it changes what the reader does, and put it inside the case it affects, as a positive fact.
-- **A promise the project does not make stays as written.** 「alpha 版不保證能升級或回復」 says how much effort the project puts in (no CI for every upgrade path), not that an upgrade usually fails. Rewriting it as 「升級或回復都可能失敗」 changes the claim. Keep 不保證 when it states the project's commitment.
-
-  | Before | After |
-  |---|---|
-  | 這份對照表不代表 Zeabur Identity 已取得 OpenID 認證。 | （刪掉；或寫事實：Zeabur Identity 還沒有申請 OpenID 認證。） |
-  | 這是從你自己的網路檢查，不代表所有人都連得到。 | 這是從你的網路檢查的結果，其他網路可能連不到。 |
 - **No 「不是 X，而是 Y」, 「不只是 X，更是 Y」.** Say Y. A contrast stays only when the contrast is the information.
 
 ## Punctuation
