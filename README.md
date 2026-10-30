@@ -21,7 +21,7 @@ The CLI records the source in the repository's `skills-lock.json`. A repository'
 | [`zeabur-oss-rust`](skills/zeabur-oss-rust/SKILL.md) | Follow the conventions every zeabur-oss Rust workspace shares |
 | [`zeabur-oss-standards`](skills/zeabur-oss-standards/SKILL.md) | Review a change against the shared engineering standards |
 | [`no-ai-flavour`](skills/no-ai-flavour/SKILL.md) | Keep code comments, copy and visuals free of the generic AI-made feel |
-| [`story-writing`](skills/story-writing/SKILL.md) | Write or revise a blog post, launch note or other narrative article |
+| [`story-writing`](skills/story-writing/SKILL.md) | Write or revise a blog post, launch note, technical article or other long-form piece |
 
 ## Checking text with Vale
 
