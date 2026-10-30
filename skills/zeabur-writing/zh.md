@@ -55,12 +55,12 @@ The register is plain written Chinese, as in a good manual: everyday words, full
 
 ## Say the fact, not the hedge
 
-- **No defensive 不保證／不代表／不宣稱.** Keep a limit only when it changes what the reader does, and put it inside the case it affects, as a positive fact.
+- **No defensive 不代表／不宣稱.** Keep a limit only when it changes what the reader does, and put it inside the case it affects, as a positive fact.
+- **A promise the project does not make stays as written.** 「alpha 版不保證能升級或回復」 says how much effort the project puts in (no CI for every upgrade path), not that an upgrade usually fails. Rewriting it as 「升級或回復都可能失敗」 changes the claim. Keep 不保證 when it states the project's commitment.
 
   | Before | After |
   |---|---|
   | 這份對照表不代表 Zeabur Identity 已取得 OpenID 認證。 | （刪掉；或寫事實：Zeabur Identity 還沒有申請 OpenID 認證。） |
-  | ### 目前不保證的事 ／ 不保證能順利升級或回復 | ### 升級前先知道 ／ alpha 版之間沒有轉換機制，升級或回復都可能失敗 |
   | 這是從你自己的網路檢查，不代表所有人都連得到。 | 這是從你的網路檢查的結果，其他網路可能連不到。 |
 - **No 「不是 X，而是 Y」, 「不只是 X，更是 Y」.** Say Y. A contrast stays only when the contrast is the information.
 
