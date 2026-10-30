@@ -1,12 +1,18 @@
 # zeabur-oss skills
 
-Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. To use one in a repository, copy its directory into `.claude/skills/`:
+Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. Put one in a repository's `.claude/skills/` either way:
 
 ```sh
+# copy the directory from a clone of this repository
+mkdir -p <repo>/.claude/skills
 cp -R skills/zeabur-writing <repo>/.claude/skills/
+# or with the skills CLI, which also records it in skills-lock.json
+npx skills add zeabur-oss/skills --skill zeabur-writing --agent claude-code --copy
 ```
 
-The repository's `.github/workflows/skills.yml` calls the shared [`skills.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/skills.yml) every week: it copies each skill in `.claude/skills` that this repository also has again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
+Without `--copy`, the CLI keeps the skill in `.agents/skills/` and links it from `.claude/skills/`.
+
+A zeabur-oss repository's `.github/workflows/skills.yml` calls the shared [`skills.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/skills.yml) every week: it copies each directory in `.claude/skills` with the name of a skill here again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
 
 ## Skills
 

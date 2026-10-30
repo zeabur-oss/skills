@@ -29,9 +29,8 @@ The [`vale/`](vale) directory is a Vale style. It catches what a pattern can: pu
 
 Setup, once per repo:
 
-1. Copy this skill's directory into the repo's `.claude/skills/` (see this repository's README).
-2. Copy [`vale/vale.ini`](vale/vale.ini) to `.vale.ini` at the repo root and set `StylesPath` to the installed `vale` directory.
-3. Put Vale in the dev shell. `.mdx` files also need `mdx2vast`, which nixpkgs does not have; this repo's flake builds it (`packages.mdx2vast`).
+1. Copy [`vale/vale.ini`](vale/vale.ini) to `.vale.ini` at the repo root and set `StylesPath` to this skill's `vale` directory.
+2. Put Vale in the dev shell. `.mdx` files also need `mdx2vast`, which nixpkgs does not have; this repo's flake builds it (`packages.mdx2vast`).
 
 Then run `vale <files>`. A file's language comes from its path: `zh-TW` or `zh-CN` anywhere in it selects the Chinese rules, anything else is English. Add a section to `.vale.ini` for files named otherwise.
 
