@@ -1,12 +1,18 @@
 # zeabur-oss skills
 
-Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. Install one into a repository with the [`skills`](https://github.com/vercel-labs/skills) CLI:
+Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. Put one in a repository's `.claude/skills/` either way:
 
 ```sh
-npx skills add zeabur-oss/skills --skill zeabur-writing
+# copy the directory from a clone of this repository
+mkdir -p <repo>/.claude/skills
+cp -R skills/zeabur-writing <repo>/.claude/skills/
+# or with the skills CLI, which also records it in skills-lock.json
+npx skills add zeabur-oss/skills --skill zeabur-writing --agent claude-code --copy
 ```
 
-The CLI records the source in the repository's `skills-lock.json`. A repository's own skill keeps its commands, paths and terms, and points to the shared skill for the rest.
+Without `--copy`, the CLI keeps the skill in `.agents/skills/` and links it from `.claude/skills/`.
+
+A zeabur-oss repository's `.github/workflows/skills.yml` calls the shared [`skills.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/skills.yml) every week: it copies each directory in `.claude/skills` with the name of a skill here again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
 
 ## Skills
 
@@ -25,7 +31,10 @@ The CLI records the source in the repository's `skills-lock.json`. A repository'
 
 ## Checking text with Vale
 
-`zeabur-writing` ships a [Vale](https://vale.sh) style in [`skills/zeabur-writing/vale`](skills/zeabur-writing/vale). Its [SKILL.md](skills/zeabur-writing/SKILL.md) says how to set it up in a repository. This flake builds `mdx2vast`, which Vale needs for `.mdx` files:
+`zeabur-writing` ships a [Vale](https://vale.sh) style in [`skills/zeabur-writing/vale`](skills/zeabur-writing/vale). To check a repository with it, once:
+
+1. Copy [`vale.ini`](skills/zeabur-writing/vale/vale.ini) to `.vale.ini` at the repository root and set `StylesPath` to `.claude/skills/zeabur-writing/vale`.
+2. Put Vale in the dev shell. `.mdx` files also need `mdx2vast`, which nixpkgs does not have; this flake builds it:
 
 ```nix
 inputs.oss-skills.url = "github:zeabur-oss/skills";
