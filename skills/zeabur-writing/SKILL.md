@@ -29,7 +29,7 @@ The [`vale/`](vale) directory is a Vale style. It catches what a pattern can: pu
 
 Setup, once per repo:
 
-1. Install the skill (`npx skills add zeabur-oss/skills --skill zeabur-writing`).
+1. Copy this skill's directory into the repo's `.claude/skills/` (see this repository's README).
 2. Copy [`vale/vale.ini`](vale/vale.ini) to `.vale.ini` at the repo root and set `StylesPath` to the installed `vale` directory.
 3. Put Vale in the dev shell. `.mdx` files also need `mdx2vast`, which nixpkgs does not have; this repo's flake builds it (`packages.mdx2vast`).
 

@@ -1,12 +1,12 @@
 # zeabur-oss skills
 
-Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. Install one into a repository with the [`skills`](https://github.com/vercel-labs/skills) CLI:
+Agent skills shared by every zeabur-oss repository, in the [Agent Skills](https://agentskills.io/) format. To use one in a repository, copy its directory into `.claude/skills/`:
 
 ```sh
-npx skills add zeabur-oss/skills --skill zeabur-writing
+cp -R skills/zeabur-writing <repo>/.claude/skills/
 ```
 
-The CLI records the source in the repository's `skills-lock.json`. A repository's own skill keeps its commands, paths and terms, and points to the shared skill for the rest.
+The repository's `.github/workflows/skills.yml` calls the shared [`skills.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/skills.yml) every week: it copies each skill in `.claude/skills` that this repository also has again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
 
 ## Skills
 
