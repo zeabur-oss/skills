@@ -1,5 +1,5 @@
 extends: existence
-message: "「%s」是填充：直接用後面的動詞（作出決定 → 決定，予以處理 → 處理）"
+message: "「%s」是填充：直接用後面的動詞（作出決定 → 決定，對請求予以拒絕 → 拒絕請求）"
 level: error
 nonword: true
 tokens:
