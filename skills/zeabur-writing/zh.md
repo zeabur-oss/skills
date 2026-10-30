@@ -40,7 +40,7 @@ The register is plain written Chinese, as in a good manual: everyday words, full
   | Before | After |
   |---|---|
   | 一旦用滿，服務會被停掉來釋放記憶體。 | 記憶體用滿時，kubelet 會停掉服務來騰出空間。 |
-- **Condition and time first, result last.** English puts *until*, *if*, *to ensure* after the main clause; Chinese puts them before it.
+- **Condition and time first, result last.** English puts *until*, *if*, *to ensure* after the main clause, and that is natural English; Chinese puts them before it. Only the Chinese text gets this rule (`ZeaburZh.ConditionLast`).
 
   | Before | After |
   |---|---|
@@ -79,7 +79,7 @@ zh-TW follows the 教育部《重訂標點符號手冊》 (https://language.moe.
 
 - One half-width space between Han characters and Latin letters or digits: 「3 個服務」「在 Kubernetes 裡」. Also around inline code in docs: 「執行 `kubectl apply`」.
 - No space between Han characters, or next to full-width punctuation: 「沒有 指標儲存服務」 → 「沒有指標儲存服務」.
-- No space around bold or other emphasis in Chinese text: 「按**重新啟動**更換」, not 「按 **重新啟動** 更換」. Where the bold text starts or ends with punctuation (「**「設定」**頁」), Markdown needs a space or punctuation outside the `**` too; reword so the bold sits between Han characters or punctuation.
+- No space around bold, italics or links in Chinese text. Write 「按**重新啟動**更換」 and 「見[安裝文件](install.md)設定」, not 「按 **重新啟動** 更換」 or 「見 [安裝文件](install.md) 設定」. Bold Latin text keeps the Han–Latin space: 「用 **Kubernetes** 部署」. `ZeaburZh.SpaceExtra` catches the extra spaces. Where bold text starts or ends with punctuation (「**「設定」**頁」), Markdown needs a space or punctuation outside the `**` to see it as bold; reword so the bold sits between Han characters or punctuation.
 - A placeholder that may hold either Chinese or Latin text needs its space computed, not hard-coded (zeabur: `latinStart` / `latinEnd` in `web/src/i18n/zh-TW.ts`).
 
 ## zh-CN pass
