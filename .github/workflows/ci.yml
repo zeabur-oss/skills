@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Every job is in scripts/ci.sh (`scripts/ci.sh --list`); the shared workflow only checks out
+  # and installs Nix.
+  ci:
+    uses: zeabur-oss/.github/.github/workflows/ci.yml@d372cc7913ed9692161a23a65ac5f3aa73f30eab # main
+  dco:
+    uses: zeabur-oss/.github/.github/workflows/dco.yml@d372cc7913ed9692161a23a65ac5f3aa73f30eab # main

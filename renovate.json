@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Action digests and flake.lock (lock file maintenance). mdx2vast moves by hand with its hashes in nix/mdx2vast.nix.",
+  "extends": ["github>zeabur-oss/.github"],
+  "enabledManagers": ["github-actions", "nix"]
+}
