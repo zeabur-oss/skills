@@ -29,9 +29,9 @@ files. This skill is what every zeabur-oss repository shares.
    any failed. Without `--watch` it only reports the current state and exits 8 while checks are
    pending, so never merge on its answer alone. A red check is investigated (`zeabur-oss-ci`),
    not re-run until green.
-6. Pull requests are squash-merged (`gh pr merge <n> --squash`). The subject on `main` is the
-   commit's for a single commit and the pull request title otherwise, so keep both in
-   Conventional Commits form.
+6. Pull requests are squash-merged (`gh pr merge <n> --squash`); no other merge method is used.
+   The subject on `main` is the commit's for a single commit and the pull request title
+   otherwise, so keep both in Conventional Commits form.
 
 ## Releases
 

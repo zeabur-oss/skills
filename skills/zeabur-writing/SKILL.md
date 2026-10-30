@@ -12,11 +12,11 @@ Each repo keeps its own term list (zeabur: `docs/internal/wording.md`). Read it 
 ## Order of work
 
 1. **Know what the reader sees and wants to do.** Open the page, screen or command the text belongs to. Done when you can say, in one sentence, what the reader does next after reading it.
-2. **Write the first language.** Docs and long copy: zh-TW first, then zh-CN, then English. Interface strings: `en` defines the key, but write each Chinese string from the reader's situation, not from the English words. Load the reference for the language you are writing:
+2. **Write in the language you think in.** en, zh-TW and zh-CN are equal: start in any of them, and no locale is the source of the others. Interface strings share one key across the catalogues; the key names the string, it does not fix its wording. Load the reference for each language you write:
    - Chinese, both locales: [`zh.md`](zh.md)
    - English: [`en.md`](en.md)
    - Labels, buttons, errors, empty states, placeholders: also [`ui-strings.md`](ui-strings.md)
-3. **Write the other languages as their own text.** zh-CN is an editorial pass with mainland terms, not a character conversion. English is natural US English, not Chinese word order. All three state the same facts, limits and conditions. Done when each string makes sense read alone, without the other languages beside it.
+3. **Write every other locale as its own text.** Each one reads naturally on its own, as if it had been written first. zh-TW and zh-CN each use their own terms; neither is a character conversion of the other. English is natural US English, and Chinese keeps Chinese word order. All three state the same facts, limits and conditions, and change together in the same pull request. Done when each string makes sense read alone, without the other languages beside it.
 4. **Sweep for AI tells** with [`ai-tells.md`](ai-tells.md). Code comments and visuals follow the `no-ai-flavour` skill; a narrative article (blog post, launch note) also follows `story-writing`.
 5. **Check** with Vale (below) and the repo's own checks (zeabur: `scripts/check-zh-tw.sh`), then review with [`review-checklist.md`](review-checklist.md). Done when Vale reports no errors, each warning is fixed or judged wrong for that sentence, and every item of the checklist holds.
 
@@ -47,4 +47,4 @@ Then run `vale <files>`. A file's language comes from its path: `zh-TW` or `zh-C
 
 In `.mdx`, write the same as `{/* vale ZeaburZh.Passive = NO */}`. `<!-- vale off -->` and `<!-- vale on -->` silence every rule.
 
-Errors are rules a pattern decides reliably; warnings (`ZeaburZh.ConditionLast`, `ZeaburZhTW.Copies`, `ZeaburZhCN.Copies`) point at sentences to read again.
+Errors are rules a pattern decides reliably. Warnings point at sentences to read again and do not fail a check: `ZeaburZh.Passive` and `ZeaburZh.Pronoun` (several 被 or 它 in a paragraph), `ZeaburZh.ConditionLast` (a 直到 or 確保 clause after the result; Chinese only, since an *until* clause at the end is natural English), `ZeaburZhTW.Copies` and `ZeaburZhCN.Copies`.
