@@ -24,7 +24,7 @@ The contract of `scripts/ci.sh` (zeabur-oss/.github `README.md`):
 A new check is a new job in `scripts/ci.sh`, not a new workflow step.
 
 `.github/workflows/release.yml` runs on a `vX.Y.Z` tag: all of `ci.yml` (`workflow_call`), then
-the shared release workflow, each stage `scripts/release.sh <stage>`. For a failed release run,
+the shared release workflow, each stage `bun scripts/release.ts <stage>`. For a failed release run,
 read [RELEASE-RECOVERY.md](RELEASE-RECOVERY.md) before changing permissions, packages or
 artifacts.
 
