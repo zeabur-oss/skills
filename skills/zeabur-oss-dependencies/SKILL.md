@@ -3,6 +3,8 @@ name: zeabur-oss-dependencies
 description: The supply-chain policy every zeabur-oss repository shares for Rust crates and Bun packages — OSI licences, aws-lc-rs as the only crypto backend, a seven-day publish age, unsafe and native-code review, no install scripts, committed lock files, Git-pinned design system, fallow through bunx. Use whenever Cargo.toml, Cargo.lock, deny.toml, a package.json, a bun.lock, bunfig.toml or flake.nix changes in any zeabur-oss repository.
 ---
 
+<!-- Edit this in zeabur-oss/skills (skills/zeabur-oss-dependencies/SKILL.md); the weekly skills sync overwrites the copy in other repositories. -->
+
 # Zeabur OSS dependencies
 
 The repository's dependencies skill names its shipped binaries, its frontend directory and its

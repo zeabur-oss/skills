@@ -17,6 +17,7 @@ scripts/ci.sh              the CI jobs (--list)
 - The directory name is kebab-case and equals `name` in the frontmatter. `description` says what the skill does and when to use it, with the words a request would contain.
 - A shared skill holds what is the same in every repository. Commands, paths, crate names and term lists stay in that repository's own skill, which points here.
 - Merge facts from the repositories; do not invent a rule none of them has.
+- Every `.md` under `skills/` starts (after any frontmatter) with `<!-- Edit this in zeabur-oss/skills (<its path>); ... -->`, so whoever opens a copy in another repository edits it here; `ci.sh skills` checks it.
 - Write by `zeabur-writing`: plain words, no filler, no caveat that does not change what the reader does.
 - `no-ai-flavour` and `story-writing` are kept as their author wrote them; change them only when asked.
 
@@ -30,7 +31,7 @@ scripts/ci.sh              the CI jobs (--list)
 Run every job before you commit, in the dev shell (`nix develop`):
 
 ```sh
-./scripts/ci.sh skills   # frontmatter of each SKILL.md
+./scripts/ci.sh skills   # frontmatter of each SKILL.md, the edit-here note
 ./scripts/ci.sh lint     # shellcheck, actionlint, nixfmt
 ./scripts/ci.sh prose    # Vale fixtures, then Vale on this repository's own text
 ```
