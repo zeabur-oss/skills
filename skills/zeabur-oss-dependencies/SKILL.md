@@ -48,13 +48,11 @@ exceptions. Run every command inside `nix develop`.
   the blocked ones.
 - Commit `package.json` and `bun.lock` together; CI installs with `bun ci`, which fails if they
   disagree.
-- `@zeabur/design-system` is pinned to a commit of its repository: a Git dependency
-  (`github:zeabur-oss/design-system#<commit>`, moved with
-  `bun add 'github:zeabur-oss/design-system#<commit>'`) or a tarball packed from that commit and
-  checked in under `vendor/`; the repository's skill says which. To try an unpublished
-  design-system commit, point it at a local tarball (the design system's `design-system-change`
-  skill) and `bun install`; never commit `package.json` or `bun.lock` with a path outside the
-  repository.
+- `@zeabur-oss/design-system` comes from npm at an exact version, published from the design
+  system's version tags; Renovate moves it, and `bunfig.toml` exempts it from the minimum release
+  age. To try an unpublished design-system commit, point it at a local tarball (the design
+  system's `design-system-change` skill) and `bun install`; never commit `package.json` or
+  `bun.lock` with a path outside the repository.
 - fallow is not in nixpkgs. It runs as `bunx fallow@<version>` from the `fallow` script in
   `package.json`. Its platform packages ship a prebuilt Rust binary (npm provenance; the wrapper
   checks its signature before it runs) and run no install scripts. Bump it to a release at least
