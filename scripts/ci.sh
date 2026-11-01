@@ -38,6 +38,10 @@ check_skills() {
   for dir in skills/*/; do
     [[ -f "$dir/SKILL.md" ]] || { echo "$dir: no SKILL.md" >&2; status=1; }
   done
+  while IFS= read -r -d '' file; do
+    grep -qF "<!-- Edit this in zeabur-oss/skills ($file);" "$file" ||
+      { echo "$file: no note that it is edited in zeabur-oss/skills" >&2; status=1; }
+  done < <(find skills -name '*.md' -print0)
   return "$status"
 }
 
