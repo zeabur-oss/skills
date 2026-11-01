@@ -17,6 +17,6 @@ jobs:
   # Every job is in scripts/ci.sh (`scripts/ci.sh --list`); the shared workflow only checks out
   # and installs Nix.
   ci:
-    uses: zeabur-oss/.github/.github/workflows/ci.yml@d372cc7913ed9692161a23a65ac5f3aa73f30eab # main
+    uses: zeabur-oss/.github/.github/workflows/ci.yml@3d106187b96a11dcc2b1c3024c95400a074de1a1 # main
   dco:
-    uses: zeabur-oss/.github/.github/workflows/dco.yml@d372cc7913ed9692161a23a65ac5f3aa73f30eab # main
+    uses: zeabur-oss/.github/.github/workflows/dco.yml@3d106187b96a11dcc2b1c3024c95400a074de1a1 # main
