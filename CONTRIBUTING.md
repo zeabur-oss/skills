@@ -18,12 +18,11 @@ message on `main` and follows the same form.
 ## Setup and checks
 
 The development shell (`flake.nix`) has Vale, mdx2vast, shellcheck, actionlint and nixfmt; run
-every command in it (`nix develop`, or `nix develop -c <command>`). CI runs every job of
-`scripts/ci.sh`, which enters the shell itself:
+every command in it (`nix develop`, or `nix develop -c <command>`). Each CI job in
+`.github/workflows/ci.yml` runs `scripts/ci/<job>.sh` in the shell:
 
 ```sh
-./scripts/ci.sh --list     # skills, lint, prose
-./scripts/ci.sh prose
+nix develop -c scripts/ci/prose.sh
 ```
 
 [AGENTS.md](AGENTS.md) covers how to write a skill and change the Vale style.

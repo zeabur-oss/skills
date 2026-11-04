@@ -12,7 +12,7 @@ npx skills add zeabur-oss/skills --skill zeabur-writing --agent claude-code --co
 
 Without `--copy`, the CLI keeps the skill in `.agents/skills/` and links it from `.claude/skills/`.
 
-A zeabur-oss repository's `.github/workflows/skills.yml` calls the shared [`skills.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/skills.yml) every week: it copies each directory in `.claude/skills` with the name of a skill here again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
+A zeabur-oss repository's `.github/workflows/update.yml` calls the shared [`update.yml`](https://github.com/zeabur-oss/.github/blob/main/.github/workflows/update.yml) every week: it copies each directory in `.claude/skills` with the name of a skill here again and opens a pull request. A repository's own skill keeps its commands, paths and terms, has a name not used here, and points to the shared skill for the rest.
 
 ## Skills
 
