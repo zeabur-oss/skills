@@ -24,7 +24,7 @@ files. This skill is what every zeabur-oss repository shares.
    `BREAKING CHANGE:` footer. The subject says what changes in plain words; the body says why.
    No tool- or session-specific trailers.
 4. Run the checks for what you touched (the repository's dev skill; every CI job is
-   `scripts/ci.sh <job>`, see `zeabur-oss-ci`), push, and open the pull request with
+   `nix develop -c scripts/ci/<job>.sh`, see `zeabur-oss-ci`), push, and open the pull request with
    `gh pr create --base main`. The body: what was wrong or missing (link the failed run or the
    issue), the cause and how it was shown, what changed. Name what was not verified.
 5. Wait for every check: `gh pr checks <n> --watch` returns once all have finished, non-zero if
@@ -33,7 +33,8 @@ files. This skill is what every zeabur-oss repository shares.
    not re-run until green.
 6. Pull requests are squash-merged (`gh pr merge <n> --squash`); no other merge method is used.
    The subject on `main` is the commit's for a single commit and the pull request title
-   otherwise, so keep both in Conventional Commits form.
+   otherwise, so keep both in Conventional Commits form. With a merge queue, `gh pr merge --squash`
+   enqueues the pull request; the slow checks run there on the commit about to land.
 
 ## Releases
 
