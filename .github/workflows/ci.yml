@@ -1,5 +1,6 @@
 name: CI
 
+# Each job runs scripts/ci/<job>.sh in the Nix dev shell, the same as locally.
 on:
   push:
     branches: [main]
@@ -14,9 +15,45 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Every job is in scripts/ci.sh (`scripts/ci.sh --list`); the shared workflow only checks out
-  # and installs Nix.
-  ci:
-    uses: zeabur-oss/.github/.github/workflows/ci.yml@0c71bf4017582c7cabe03d79842254694964a385 # main
+  skills:
+    runs-on: ubuntu-26.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: zeabur-oss/.github/actions/ci-setup@64a6547509a1911f03c4b1e62965ef9f2b4c39b6 # main
+      - run: nix develop -c scripts/ci/skills.sh
+
+  lint:
+    runs-on: ubuntu-26.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: zeabur-oss/.github/actions/ci-setup@64a6547509a1911f03c4b1e62965ef9f2b4c39b6 # main
+      - run: nix develop -c scripts/ci/lint.sh
+
+  prose:
+    runs-on: ubuntu-26.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: zeabur-oss/.github/actions/ci-setup@64a6547509a1911f03c4b1e62965ef9f2b4c39b6 # main
+      - run: nix develop -c scripts/ci/prose.sh
+
+  zizmor:
+    uses: zeabur-oss/.github/.github/workflows/zizmor.yml@64a6547509a1911f03c4b1e62965ef9f2b4c39b6 # main
+
+  # The check rulesets require.
+  ok:
+    name: ci / ok
+    if: always()
+    needs: [skills, lint, prose, zizmor]
+    runs-on: ubuntu-slim
+    steps:
+      - if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+
   dco:
-    uses: zeabur-oss/.github/.github/workflows/dco.yml@0c71bf4017582c7cabe03d79842254694964a385 # main
+    uses: zeabur-oss/.github/.github/workflows/dco.yml@64a6547509a1911f03c4b1e62965ef9f2b4c39b6 # main
