@@ -20,10 +20,6 @@ description: How CI works in every zeabur-oss repository (a plain .github/workfl
 - The required check is a plain job `ci / ok` with `if: always()` (`check / ok` and `smoke-ok` in
   catalog). zizmor is the reusable `zizmor.yml` (`zizmor / zizmor`) and runs on every pull request.
   `dco / DCO` runs on pull requests only.
-- catalog smoke tests the changed components and templates and what installs them. A change to a
-  shared file (`tools/`, `go.*`, `flake.*`, `config/*`, workflows) runs the fixed
-  `smokeRepresentative` list in `config/e2e.yaml`; a change to `config/kubernetes.yaml` runs
-  everything.
 - `update.yml` opens one weekly pull request (Monday 02:30 Taipei; `workflow_dispatch` for an urgent
   one) that moves the workflow pins and the shared skills together. Renovate runs daily from 03:00
   to 07:00 Taipei, one pull request per update; K3s follows its stable channel.
