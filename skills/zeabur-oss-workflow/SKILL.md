@@ -12,12 +12,15 @@ files. This skill is what every zeabur-oss repository shares.
 
 ## Taking an issue
 
-- Assign the issue to yourself before you start (`gh issue edit <n> --add-assignee @me`), so
-  two people don't do the same work. If you can't assign it, comment that you are taking it.
+- Claim the issue before you start, so two people don't do the same work. With triage access or
+  more, assign it to yourself (`gh issue edit <n> --add-assignee @me`). Without it, comment on
+  the issue that you are taking it; a maintainer assigns you.
 - Read its "Depends on" links first. Work that waits on an open issue or pull request starts
   after it lands.
 - Milestones order the work. `Next` ships before `Later`: a pull request for a `Later` issue
-  stays unmerged until `Next` is released. Give every pull request its issue's milestone.
+  stays unmerged until `Next` is released. Every pull request carries its issue's milestone. Set
+  it yourself if you can (`gh pr edit <n> --milestone <name>`); otherwise name the issue in the
+  body ("Closes #n") and a maintainer sets it.
 - Fix the cause, not the symptom. A small root fix that breaks an old behaviour is better than a
   workaround around it; say what breaks in the pull request.
 
