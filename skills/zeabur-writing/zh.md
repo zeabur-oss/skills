@@ -92,7 +92,7 @@ zh-TW follows the 教育部《重訂標點符號手冊》 (https://language.moe.
 
 ## Common terms (generic IT)
 
-Repo glossaries win where they differ (zeabur: `docs/internal/wording.md`, "Terms"); [`wording.md`](wording.md) has the shared ones.
+Repo glossaries win where they differ (zeabur: `docs/internal/wording.md`, "Terms"); [`wording.md`](wording.md) has Zeabur's.
 
 | English | zh-TW | zh-CN |
 |---|---|---|

@@ -16,7 +16,7 @@ scripts/ci/<job>.sh        the CI jobs
 ## Writing a skill
 
 - The directory name is kebab-case and equals `name` in the frontmatter. `description` says what the skill does and when to use it, with the words a request would contain.
-- A shared skill holds what is the same in every repository. Commands, paths, crate names and term lists stay in that repository's own skill, which points here.
+- A shared skill holds what is the same in every repository. Commands, paths, crate names and term lists stay in that repository's own skill, which points here. The exception is `skills/zeabur-writing/wording.md`, the term list of Zeabur's own screens, which says it applies to text about them.
 - Merge facts from the repositories; do not invent a rule none of them has.
 - Every `.md` under `skills/` starts (after any frontmatter) with `<!-- Edit this in zeabur-oss/skills (<its path>); ... -->`, so whoever opens a copy in another repository edits it here; `scripts/ci/skills.sh` checks it.
 - Write by `zeabur-writing`: plain words, no filler, no caveat that does not change what the reader does.

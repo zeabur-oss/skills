@@ -9,7 +9,7 @@ description: Write or review text people read in any zeabur-oss repo, in English
 
 Text should read like a careful person wrote it in that language: plain words, the reader's task first, natural rhythm. Translation-ese (歐化), filler and defensive hedging are the failures to fix.
 
-[`wording.md`](wording.md) is Zeabur's term list and element conventions. A repo may keep its own list (zeabur: `docs/internal/wording.md`); read both before writing. A term in the repo's list beats `wording.md`, and `wording.md` beats anything else here. [`localization.md`](localization.md) gives the lookup order for the rest and the sources behind these rules.
+Each repo keeps its own term list (zeabur: `docs/internal/wording.md`). Read it before writing; a term listed there beats anything here. [`wording.md`](wording.md) is a copy of Zeabur's list for text shown in the Zeabur interface or docs; a repo whose text is not about Zeabur's screens does not take its terms from it. [`localization.md`](localization.md) gives the lookup order for the rest and the sources behind these rules.
 
 ## Order of work
 
