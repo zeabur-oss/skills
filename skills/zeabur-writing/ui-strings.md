@@ -5,7 +5,7 @@
 <!-- This file quotes the patterns it describes. -->
 <!-- vale ZeaburEn.Please = NO -->
 
-Applies to labels, buttons, titles, status words, errors, empty states, placeholders and toasts in every language. The repo's own element table (zeabur: `docs/internal/wording.md`, "Element conventions") sets case and punctuation per element.
+Applies to labels, buttons, titles, status words, errors, empty states, placeholders and toasts in every language. The element table in [`wording.md`](wording.md), "Element conventions" (or the repo's own copy), sets case and punctuation per element.
 
 ## Each string stands alone
 

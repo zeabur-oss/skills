@@ -12,8 +12,8 @@ The repository's dev skill has its crate table, binaries, extra checks and gener
 ## Toolchain
 
 - Everything runs inside the Nix dev shell: prefix commands with `nix develop -c …` (or enter
-  `nix develop`). Do not use system-installed toolchains or rustup; there is no
-  `rust-toolchain.toml`.
+  `nix develop`). Do not use system-installed toolchains or rustup. The toolchain
+  comes from the flake, not from a `rust-toolchain.toml`.
 - `flake.lock` is the only place the compiler version is set: `nix develop` takes the newest
   nightly in the locked rust-overlay that has every component and target listed in `flake.nix`.
   The nightly enables the parallel front end (`-Zthreads`), current clippy lints and rustfmt's
@@ -28,7 +28,7 @@ The repository's dev skill has its crate table, binaries, extra checks and gener
 ## Workspace
 
 - A flat `crates/` directory; dependencies only point downwards. Where the workspace has levels
-  (`[workspace.metadata.levels]` in `Cargo.toml`, checked by `scripts/check-levels.sh`), a crate
+  (`[workspace.metadata.levels]` in `Cargo.toml`, checked by [`scripts/check-levels.sh`](scripts/check-levels.sh), run from the workspace root), a crate
   depends only on crates of a lower level. Put new code in the lowest crate that can hold it;
   never add an upward dependency.
 - Dependency versions live in the root `Cargo.toml` `[workspace.dependencies]`; crates use

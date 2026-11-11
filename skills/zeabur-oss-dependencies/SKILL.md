@@ -32,8 +32,9 @@ exceptions. Run every command inside `nix develop`.
   the lock file (`registry.global-min-publish-age` in `.cargo/config.toml`). For an urgent
   security fix, override it for one command:
   `CARGO_REGISTRY_GLOBAL_MIN_PUBLISH_AGE="0 days" cargo update -p <crate>`.
-- **Unsafe and native code.** Run the unsafe report (`./scripts/unsafe-report.sh`, or
-  `zeabur-oss-unsafe-report <package>…` from the `zeabur-oss/.github` flake). Every shipped crate
+- **Unsafe and native code.** Run the unsafe report from the Cargo workspace:
+  `zeabur-oss-unsafe-report <package>…`, the bin of `@zeabur-oss/release` (a Git dependency on
+  `zeabur-oss/.github` in `package.json`), with the packages whose binaries ship. Every shipped crate
   that contains `unsafe` or builds native code needs an entry in
   `supply-chain/unsafe-allowlist.toml`: `kind`, a concrete `reason` (where the unsafe is,
   whether it runs only at build time), and `approved = "pending"` until a maintainer reviews it

@@ -7,6 +7,7 @@ Agent skills shared by every zeabur-oss repository. Each skill is a directory th
 ```
 skills/<name>/SKILL.md     the skill: frontmatter, then instructions
 skills/<name>/*.md         references SKILL.md links to, loaded when needed
+skills/<name>/scripts/     scripts SKILL.md names; they run in any repository: relative paths, no repository names
 skills/zeabur-writing/vale the Vale style, its TypeScript view and the sample vale.ini
 tests/zeabur-writing/      Vale fixtures: hit/ must trigger the rule named on line 1, clean/ nothing
 scripts/ci/<job>.sh        the CI jobs
